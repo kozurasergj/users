@@ -27,7 +27,7 @@ export const Users = () => {
     const toggleSortUsersDesc = () => {
         dispatch(sortByDesc());
     };
-
+console.log(`toggleSortUsers`)
     return (
         <section className={styles.container}>
             <h1>Users</h1>
