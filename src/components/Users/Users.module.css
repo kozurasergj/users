@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.users {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.user {
+    gap: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+.name {
+}
+.email {
+}
+.city {
+}
+.phone {
+}
+.album {
+}
+.posts {
+}
