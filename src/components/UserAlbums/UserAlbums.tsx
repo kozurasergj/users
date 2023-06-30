@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useRedux';
 import { IAlbum } from '../../interfaces';
+import styles from './UserAlbums.module.css';
 
 const UserAlbums = () => {
     const { userId } = useParams();
@@ -12,17 +13,21 @@ const UserAlbums = () => {
     }
 
     return (
-        <div>
-            <h2>User Albums</h2>
-            <p>User: {user.name}</p>
-            <div>
-                {user.albums && user.albums.map((album:IAlbum) => (
-                <div key={album.id}>
-                    <p>Title: {album.title}</p>
-                </div>
-                ))}
-            </div>
-        </div>
+        <section className="container">
+            <header>
+                <h2 className="header">User Albums</h2>
+                <p className="header-name">User: {user.name}</p>
+            </header>
+            <main>
+                <ul>
+                    {user.albums && user.albums.map((album: IAlbum) => (
+                        <li key={album.id} className={styles.title} >
+                            {album.title}
+                        </li>
+                    ))}
+                </ul>
+            </main>
+        </section>
     );
 };
 

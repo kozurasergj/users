@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useRedux';
 import { IPost } from '../../interfaces';
+import styles from './UserPosts.module.css';
 
 const UserPosts = () => {
     const { userId } = useParams();
@@ -12,18 +13,24 @@ const UserPosts = () => {
     }
 
     return (
-        <div>
-            <h2>User Posts</h2>
-            <p>User: {user.name}</p>
-            <div>
-                {user.posts && user.posts.map((post: IPost) => (
-                    <div key={post.id}>
-                        <p>Title: {post.title}</p>
-                        <p>Body: {post.body}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
+        <section className="container">
+            <header>
+                <h2 className="header">User Posts</h2>
+                <p className="header-name">User: {user.name}</p>
+            </header>
+            <main>
+                <ul>
+                    {user.posts && user.posts.map((post: IPost) => (
+                        <li key={post.id} className={styles.title}>
+                            <ul className='list'>
+                                <li>Title: {post.title}</li>
+                                <li>Body: {post.body}</li>
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+            </main>
+        </section >
     );
 };
 

@@ -27,31 +27,32 @@ export const Users = () => {
     const toggleSortUsersDesc = () => {
         dispatch(sortByDesc());
     };
-console.log(`toggleSortUsers`)
+    console.log(`toggleSortUsers`)
     return (
-        <section className={styles.container}>
-            <h1>Users</h1>
-            <button onClick={toggleSortUsersAsc}>Sort by Username ascending</button>
-            <button onClick={toggleSortUsersDesc}>Sort by Username descending</button>
-
-            <div className={styles.users}>
+        <section className="container">
+            <header>
+                <h1 className="header">Users</h1>
+                <button className="button-sort" onClick={toggleSortUsersAsc}>Sort by ascending</button>
+                <button className="button-sort" onClick={toggleSortUsersDesc}>Sort by descending</button>
+            </header>
+            <main className={styles.users}>
                 {users.length > 0 && users.map((user: IUser) => (
                     <div key={user.id} className={styles.user}>
                         <p className={styles.name}>{user.name}</p>
                         <p className={styles.email}>{user.email}</p>
                         <p className={styles.city}>city:{user.address.city}</p>
                         <p className={styles.phone}>{user.phone}</p>
-                        <button className={styles.album}
+                        <button className="button"
                             onClick={() => handleAlbumClick(user.id)}>
                             <Link to={`/users/${user.id}/albums`}>Show Album</Link>
                         </button>
-                        <button className={styles.posts}
+                        <button className="button"
                             onClick={() => handlePostClick(user.id)}>
                             <Link to={`/users/${user.id}/posts`}>Show Posts</Link>
                         </button>
                     </div>
                 ))}
-            </div>
+            </main>
         </section>
     )
 }
