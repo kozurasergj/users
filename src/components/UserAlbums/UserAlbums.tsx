@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/useRedux';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { IAlbum } from '../../interfaces';
+import { fetchAlbums } from '../../store/slices/usersSlice';
 import styles from './UserAlbums.module.css';
 
 const UserAlbums = () => {
