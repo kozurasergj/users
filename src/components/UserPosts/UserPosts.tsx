@@ -1,17 +1,22 @@
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/useRedux';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { IPost } from '../../interfaces';
+import { fetchPosts } from '../../store/slices/usersSlice';
 import styles from './UserPosts.module.css';
 
 const UserPosts = () => {
     const { userId } = useParams();
+    const dispatch = useAppDispatch();
     const users = useAppSelector(state => state.users.users);
     const user = users.find(user => user.id === Number(userId));
+
+    if (userId && !user?.posts) {
+        dispatch(fetchPosts(Number(userId)));
+    }
 
     if (!user) {
         return <div className="loading">loading</div>;
     }
-
 
     return (
         <section className="container">
