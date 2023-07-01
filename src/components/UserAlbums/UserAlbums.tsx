@@ -5,8 +5,13 @@ import styles from './UserAlbums.module.css';
 
 const UserAlbums = () => {
     const { userId } = useParams();
+    const dispatch = useAppDispatch();
     const users = useAppSelector(state => state.users.users);
     const user = users.find(user => user.id === Number(userId));
+
+    if (userId && !user?.albums) {
+        dispatch(fetchAlbums(Number(userId)));
+    }
 
     if (!user) {
         return <div className='loading'>loading</div>;
