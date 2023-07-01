@@ -30,7 +30,8 @@ button {
     flex-direction: column;
 }
 
-.header,.header-name {
+.header,
+.header-name {
     font-size: 40px;
     margin-bottom: 30px;
     text-align: center;
@@ -57,6 +58,14 @@ button {
     background-color: #807f7f;
 }
 
-.list{
+.list {
     list-style: none;
 }
+
+.loading{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: #3f8cff;
+    padding: 20px;
+}
+

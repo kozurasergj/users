@@ -27,7 +27,11 @@ export const Users = () => {
     const toggleSortUsersDesc = () => {
         dispatch(sortByDesc());
     };
-    console.log(`toggleSortUsers`)
+
+    if (!users) {
+        return <div className="loading">loading</div>;
+    }
+
     return (
         <section className="container">
             <header>

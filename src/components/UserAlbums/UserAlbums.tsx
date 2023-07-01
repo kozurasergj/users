@@ -9,7 +9,7 @@ const UserAlbums = () => {
     const user = users.find(user => user.id === Number(userId));
 
     if (!user) {
-        return <div>Loading...</div>;
+        return <div className='loading'>loading</div>;
     }
 
     return (
